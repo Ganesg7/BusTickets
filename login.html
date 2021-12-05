@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #login{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 2px solid blue;
+            left: 400px;
+            top: 200px;
+        }
+        #login input,label,button{
+
+            position: relative;
+            top: 30px;
+            left: 40px;
+        }
+        input{
+            border: none;
+            border-bottom: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+    <form action="home.html" onsubmit="return validate()">
+        <input type="text" id="uname" placeholder="Username" />
+        <br> <label id="luser" style="color: red; visibility: hidden;">Enter Username</label> <br>
+        <input type="password" id="pass" placeholder="Password" />
+        <br> <label id="lpass" style="color: red; visibility: hidden;">Enter Password</label>
+        <br> <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+<script>
+    function validate() {
+        var username = document.getElementById("uname");
+        var password = document.getElementById("pass");
+
+        if (username.value.trim() == "") {
+           
+            document.getElementById("luser").style.visibility = "visible";
+            username.style.borderBottom = "solid 3px red";
+            return false;
+
+        }
+        else if (password.value.trim() == "") {
+         
+            password.style.borderBottom = "solid 3px red";
+            document.getElementById("lpass").style.visibility = "visible";
+            return false;
+        }
+        else if (password.value.trim().length < 5) {
+            
+            document.getElementById("lpass").style.visibility = "visible";
+            document.getElementById("lpass").innerHTML="Password Too Short";
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+</script>

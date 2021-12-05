@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBus</title>
+    <style>
+        ul {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333333;
+            color: white;
+            padding: 16px;
+
+
+        }
+
+        li {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .error {
+            visibility: hidden;
+        }
+
+        #travledetalis {
+            position: absolute;
+            top: 150px;
+            left: 400px;
+            width: 400px;
+            height: 350px;
+            border: 2px solid black;
+        }
+
+        #travledetalis label,
+        input,
+        select {
+            position: relative;
+            width: 150px;
+            height: 20px;
+            left: 20px;
+            top: 20px;
+        }
+        #travledetalis button{
+            position: relative;
+            left: 180px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+
+
+        <ul type="none">
+            <b> QuickBus</b>
+            <li> <a href="index.html">LogOut</a></li>
+        </ul>
+    </div>
+
+
+
+    <form action="" id="travledetalis">
+        <label for="travlname"><b>Travles Name:</b></label>
+        <input type="text" id="travlename">
+        <br>
+        <label for="errormes" class="error">Enter Travles Name</label>
+        <br>
+        <label for="from"><b>From:</b> </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="from" id="from">
+            <option value="Chennai">Chennai</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Coyamuthur">Coyamuthur</option>
+            <option value="Virudhunagr">Virudhunagr</option>
+        </select>
+        <br>
+        <br>
+        <label for="To"><b>To:</b></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="To" id="to">
+            <option value="Chennai">Chennai</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Coyamuthur">Coyamuthur</option>
+            <option value="Virudhunagr">Virudhunagr</option>
+        </select>
+        <br>
+        <br>
+        <label for="price"><b>Bus Fare:</b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" name="busfare" id="busfare">
+        <br>
+        <label for="errormessga" class="error">Enter Bus Fare</label>
+        <br>
+        <br>
+        <label for="buscategory"><b>Bus Category:</b></label>
+        <select name="buscategory" id="buscategory">
+            <option value="AC">AC</option>
+            <option value="Non AC">Non AC</option>
+        </select>
+        <br> <br>
+        <label for="seats"><b>Seats:</b></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="seats" id="seat">
+            <option value="Sleeper">Sleeper</option>
+            <option value="Semi-Sleeper">Semi-Sleeper</option>
+            <option value="Sleeper/Semi-Sleeper">Sleeper/Semi-Sleeper</option>
+        </select>
+        <br> <br>
+        <label for="departime"><b>Depart Time:</b></label>
+        <input type="time" name="DepartTime" id="DepartTime">
+        <br> <br>
+        <button type="submit">Submit</button> &nbsp; &nbsp; <button type="reset">Reset</button>
+
+
+    </form>
+</body>
+
+</html>

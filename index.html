@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBus</title>
+    <style>
+        ul {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333333;
+            color: white;
+            padding: 16px;
+            
+
+        }
+
+        li {
+            float: right;
+        }
+        img{
+            width: 60px;
+            height: 40px;
+        }
+
+        #login{
+            visibility: hidden;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 2px solid blue;
+            left: 400px;
+            top: 200px;
+        }
+        #login input,label,button,i{
+
+            position: relative;
+            top: 30px;
+            left: 40px;
+        }
+        #login input{
+            border: none;
+            border-bottom: 2px solid blue;
+        }
+
+
+
+
+
+
+        #register{
+            visibility: hidden;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid blue;
+            top: 200px;
+            left: 450px;
+        }
+        #register input,label,button,i{
+            position: relative;
+            left: 50px;
+            top: 30px;
+        }
+
+        #register input{
+            border: none;
+            border-bottom: 2px solid blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+
+          
+        <ul type="none">
+            <b> QuickBus</b> 
+            <li onclick="regsiter()">SignUp</li> 
+            <li>&nbsp; &nbsp;</li>
+            <li>/</li><li> &nbsp; &nbsp; </li>
+            <li onclick="logV()">Login</li>
+        </ul>
+    </div>
+
+    <br>
+    <div id="login">
+        <b>Login Form</b>
+        <form action="home.html" onsubmit="return validate()">
+            <input  type="text" id="uname" placeholder="Username" />
+            <br> <label id="luser" style="color: red; visibility: hidden;">Enter Username</label> <br>
+            <input type="password" id="pass" placeholder="Password" />
+            <br> <label id="lpass" style="color: red; visibility: hidden;">Enter Password</label>
+            <br> <br>
+            <button type="submit">Submit</button>
+
+            <br> <br><i onclick="RegD()">Don't Have An Accont...??</i>
+        </form>
+    </div>
+
+
+
+<!--Register--->
+<div id="register">
+    <b>Register Form</b>
+    <form action="home.html"  onsubmit="return  reg()">
+        <input type="text" id="name" placeholder="Enter Your Name"> <br>
+        <label id="lname" style="visibility: hidden;">Enter Your Name</label>
+        <br> 
+        <input type="text" id="runame" placeholder="Enter Your Username"> <br>
+        <label for="username" id="luname" style="visibility: hidden;">Enter Your Username</label>
+         <br>
+        <input type="password" id="rpass" placeholder="Enter Your Password"> <br>
+        <label id="repass" style="visibility: hidden;">Enter Password</label>
+        <br>
+        <input type="email" id="mail" placeholder="Enter Your E-mail"> <br>
+        <label id="lmail" style="visibility: hidden;">Enter Your E-Mail</label>
+        <br>
+        <input type="text" name="phone" id="phone" placeholder="Enter Your Mobile Number"> <br>
+         <br>
+        <label id="mobile" style="visibility: hidden;">Enter  Mobile Number</label>
+
+        
+        <button type="submit">Sign Up</button>
+        <br> <br>  <i onclick="RegV()">Already Have An Account..??</i>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+<script>
+    function logV(){
+      
+    document.getElementById("login").style.visibility="visible";
+    document.getElementById("register").style.visibility="hidden";    
+    }
+
+    function regsiter(){
+        document.getElementById("login").style.visibility="hidden";
+        document.getElementById("register").style.visibility="visible";
+    }
+
+    function RegD(){
+
+     
+        document.getElementById("register").style.visibility="visible";
+        document.getElementById("login").style.visibility="hidden";
+    }
+
+    function RegV(){
+      
+        document.getElementById("login").style.visibility="visible";
+        document.getElementById("register").style.visibility="hidden";
+    }
+
+    function validate() {
+        var username = document.getElementById("uname");
+        var password = document.getElementById("pass");
+
+        if (username.value.trim() == "") {
+           
+            document.getElementById("luser").style.visibility = "visible";
+            username.style.borderBottom = "solid 3px red";
+            return false;
+
+        }
+        else if (password.value.trim() == "") {
+         
+            password.style.borderBottom = "solid 3px red";
+            document.getElementById("lpass").style.visibility = "visible";
+            return false;
+        }
+        else if (password.value.trim().length < 5) {
+            
+            document.getElementById("lpass").style.visibility = "visible";
+            document.getElementById("lpass").innerHTML="Password Too Short";
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+
+
+    function reg() {
+       var name=document.getElementById("name");
+       var username=document.getElementById("runame");
+       var password=document.getElementById("rpass");
+       var email=document.getElementById("mail");
+       var mobileNumber=document.getElementById("phone");
+       var mobileExpression = /[6-9][0-9]{9}$/;
+
+       if(name.value.trim() ==""){
+           document.getElementById("lname").style.visibility="visible";
+           document.getElementById("lname").style.color="red";
+           name.style.border="2px solid red";
+           return false;
+       }
+       else if(username.value.trim()==""){
+           document.getElementById("luname").style.visibility="visible";
+           document.getElementById("luname").style.color="red";
+           username.style.border="2px solid red";
+           return false;
+       }
+       else if(password.value.trim()==""){
+           document.getElementById("repass").style.visibility="visible";
+           document.getElementById("repass").style.color="red";
+           password.style.border="2px solid red";
+           return false;
+       }
+       else if (password.value.trim().length < 5) {
+            
+            document.getElementById("repass").style.visibility = "visible";
+            document.getElementById("repass").style.color="red";
+            document.getElementById("repass").innerHTML="Password Too Short";
+            return false;
+        }
+        else if(email.value.trim()==""){
+            document.getElementById("lmail").style.visibility="visible";
+            document.getElementById("lmail").style.color="red"
+            email.style.border="2px solid red";
+            return false;
+        }
+
+      else if(mobileNumber.value.trim()==""){
+        document.getElementById("mobile").style.visibility="visible";
+        document.getElementById("mobile").style.color="red";
+        mobileNumber.style.border="2px solid red";
+        return false;
+      }
+      else if(mobileExpression.test(mobileNumber.value)==false){
+             document.getElementById("mobile").innerHTML = "Invalid Number";
+            document.getElementById("mobile").style.visibility = "visible";
+            document.getElementById("mobile").style.color = "red";
+            return false;
+      }
+      else if(mobileExpression.test(mobileNumber.value) ){
+          return true;
+      }
+
+   }
+
+
+
+</script>

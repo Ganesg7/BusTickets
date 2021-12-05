@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBus</title>
+    <style>
+        ul {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333333;
+            color: white;
+            padding: 16px;
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        li {
+            float: right;
+        }
+
+        #search {
+            position: absolute;
+            top: 100px;
+            left: 450px;
+
+        }
+
+        #travelsdetails,
+        #chennaiNVirudhu,
+        #chennaiTOMadurai,
+        #maduraiTochennai,
+        #virudhunagarTochennai,
+        #covaiTochennai,
+        #maduraiTovirudhunagr {
+            position: absolute;
+            top: 150px;
+        }
+
+        #chennaiNVirudhu,
+        #chennaiTOMadurai,
+        #maduraiTochennai,
+        #virudhunagarTochennai,
+        #covaiTochennai,
+        #maduraiTovirudhunagr {
+            visibility: hidden;
+        }
+
+        table {
+            width: 170%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            border-top: none;
+        }
+
+        th {
+            height: 60px;
+            border: 1px solid black;
+        }
+
+        td {
+            text-align: center;
+            border: 1px solid black;
+        }
+        #covaiTochennai h2,
+        #maduraiTovirudhunagr h2{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+
+
+        <ul type="none">
+            <b> QuickBus</b>
+            <li> <a href="index.html">LogOut</a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div id="search">
+        <!--From-->
+        <label for="from"><b>From:</b> &#128652;</label>
+        <select name="from" id="from">
+            <option value="Chennai">Chennai</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Coyamuthur">Coyamuthur</option>
+            <option value="Virudhunagr">Virudhunagr</option>
+        </select>
+
+        &nbsp; &nbsp;
+        <!--To-->
+
+        <label for="To"><b>To:</b>&#128653;</label>
+        <select name="To" id="to">
+            <option value="Chennai">Chennai</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Coyamuthur">Coyamuthur</option>
+            <option value="Virudhunagr">Virudhunagr</option>
+        </select>
+        &nbsp; &nbsp;
+
+        <button onclick="travel()">&#128269;Search</button>
+    </div>
+
+    <!--Travels Details-->
+    <div id="travelsdetails">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Chennai</td>
+                <td>Virudhunagr</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>7:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>855Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>7:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>8:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>9:30pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>855Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>8:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>National Travels</td>
+                <td>Chennai</td>
+                <td>Virudhunagr</td>
+                <td>785Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>8:35pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>Hail Trip</td>
+                <td>Chennai</td>
+                <td>Coyamuthur</td>
+                <td>750Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>9:05pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+            <tr>
+                <td>MSH Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>1250Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:35pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>Hail Trip</td>
+                <td>Coyamuthur</td>
+                <td>Chennai</td>
+                <td>750Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>8:05pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>Apple Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>BGM Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+            <tr>
+                <td>Apple Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>8:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>National Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>785Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>8:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="chennaiNVirudhu">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Chennai</td>
+                <td>Virudhunagr</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>7:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>National Travels</td>
+                <td>Chennai</td>
+                <td>Virudhunagr</td>
+                <td>785Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>8:35pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+        </table>
+    </div>
+
+
+    <div id="chennaiTOMadurai">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+
+            <tr>
+                <td>Apple Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>855Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>7:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>MSH Travels</td>
+                <td>Chennai</td>
+                <td>Madurai</td>
+                <td>1250Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:35pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+
+        </table>
+    </div>
+
+
+
+    <div id="maduraiTochennai">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+
+            <tr>
+                <td>Apple Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>8:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>BGM Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>1050Rs</td>
+                <td>AC</td>
+                <td>Sleeper</td>
+                <td>9:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Madurai</td>
+                <td>Chennai</td>
+                <td>855Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>8:45pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+
+        </table>
+    </div>
+
+
+
+    <div id="virudhunagarTochennai">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>8:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+            <tr>
+                <td>Muthumari Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>985Rs</td>
+                <td>Non AC</td>
+                <td>Sleeper/Semi-Sleeper</td>
+                <td>9:30pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+            <tr>
+                <td>National Travels</td>
+                <td>Virudhunagr</td>
+                <td>Chennai</td>
+                <td>785Rs</td>
+                <td>Non AC</td>
+                <td>Semi-Sleeper</td>
+                <td>8:25pm</td>
+                <th><Button>Select Seats</Button></th>
+            </tr>
+
+        </table>
+    </div>
+
+    
+    <div id="covaiTochennai">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+            <h2>No Bus Available </h2>
+
+        </table>
+    </div>
+
+    <div id="maduraiTovirudhunagr">
+        <table>
+            <tr>
+                <th>Travels Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Fare</th>
+                <th>Bus Category</th>
+                <th>Seats</th>
+                <th>Depart Time</th>
+                <th>&nbsp; &nbsp;</th>
+            </tr>
+            <h2>No Bus Available </h2>
+
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+
+    // function comic() {
+    //         var select = document.getElementById("comic");
+    //         alert(select.options[select.selectedIndex].value)
+    //     }
+    function travel() {
+        var busfrom = document.getElementById("from");
+        var busTo = document.getElementById("to");
+
+        if (busfrom.options[busfrom.selectedIndex].value == "Chennai" &&
+            busTo.options[busTo.selectedIndex].value == "Chennai" || 
+            busfrom.options[busfrom.selectedIndex].value == "Virudhunagr" &&
+            busTo.options[busTo.selectedIndex].value == "Virudhunagr" ||
+            busfrom.options[busfrom.selectedIndex].value == "Madurai" &&
+            busTo.options[busTo.selectedIndex].value == "Madurai" ||
+            busfrom.options[busfrom.selectedIndex].value == "Coyamuthur" &&
+            busTo.options[busTo.selectedIndex].value == "Coyamuthur")  {
+
+                alert("Can't Be Selected in Both From & To  "+busfrom.options[busfrom.selectedIndex].value );
+                document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("travelsdetails").style.visibility = "visible";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+
+        }
+        else if (busfrom.options[busfrom.selectedIndex].value == "Chennai" &&
+            busTo.options[busTo.selectedIndex].value == "Virudhunagr") {
+            document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "visible";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+        }
+
+        else if (busfrom.options[busfrom.selectedIndex].value == "Chennai" &&
+            busTo.options[busTo.selectedIndex].value == "Madurai") {
+            document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "visible";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+        }
+
+        else if (busfrom.options[busfrom.selectedIndex].value == "Madurai" &&
+            busTo.options[busTo.selectedIndex].value == "Chennai") {
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "visible";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+        }
+
+        else if (busfrom.options[busfrom.selectedIndex].value == "Virudhunagr" &&
+            busTo.options[busTo.selectedIndex].value == "Chennai") {
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("virudhunagarTochennai").style.visibility = "visible";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+        }
+
+        else if (busfrom.options[busfrom.selectedIndex].value == "Coyamuthur" &&
+            busTo.options[busTo.selectedIndex].value == "Chennai") {
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="visible";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="hidden";
+        }
+
+        else if (busfrom.options[busfrom.selectedIndex].value == "Virudhunagr" &&
+            busTo.options[busTo.selectedIndex].value == "Madurai" ||
+            busfrom.options[busfrom.selectedIndex].value == "Madurai" &&
+            busTo.options[busTo.selectedIndex].value == "Virudhunagr"
+            ) {
+            document.getElementById("travelsdetails").style.visibility = "hidden";
+            document.getElementById("chennaiTOMadurai").style.visibility = "hidden";
+            document.getElementById("chennaiNVirudhu").style.visibility = "hidden";
+            document.getElementById("maduraiTochennai").style.visibility = "hidden";
+            document.getElementById("virudhunagarTochennai").style.visibility = "hidden";
+            document.getElementById("covaiTochennai").style.visibility="hidden";
+            document.getElementById("maduraiTovirudhunagr").style.visibility="visible";
+        }
+
+    }
+</script>

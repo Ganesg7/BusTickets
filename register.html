@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #register{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid blue;
+            top: 200px;
+            left: 450px;
+        }
+        #register input,label,button,i{
+            position: relative;
+            left: 50px;
+            top: 30px;
+        }
+
+        #register input{
+            border: none;
+            border-bottom: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="register">
+        <b>Register Form</b>
+        <form action="home.html"  onsubmit="return  reg()">
+            <input type="text" id="name" placeholder="Enter Your Name"> <br>
+            <label id="lname" style="visibility: hidden;">Enter Your Name</label>
+            <br> 
+            <input type="text" id="uname" placeholder="Enter Your Username"> <br>
+            <label for="username" id="luname" style="visibility: hidden;">Enter Your Username</label>
+             <br>
+            <input type="password" id="pass" placeholder="Enter Your Password"> <br>
+            <label id="lpass" style="visibility: hidden;">Enter Password</label>
+            <br>
+            <input type="email" id="mail" placeholder="Enter Your E-mail"> <br>
+            <label id="lmail" style="visibility: hidden;">Enter Your E-Mail</label>
+            <br>
+            <input type="text" name="phone" id="phone" placeholder="Enter Your Mobile Number"> <br>
+             <br>
+            <label id="mobile" style="visibility: hidden;">Enter  Mobile Number</label>
+
+            
+            <button type="submit">Sign Up</button>
+            <br> <br>  <i>Already Have An Account..??</i>
+
+        </form>
+
+    </div>
+</body>
+</html>
+
+<script>
+   function reg() {
+       var name=document.getElementById("name");
+       var username=document.getElementById("uname");
+       var password=document.getElementById("pass");
+       var email=document.getElementById("mail");
+       var mobileNumber=document.getElementById("phone");
+       var mobileExpression = /[6-9][0-9]{9}$/;
+
+       if(name.value.trim() ==""){
+           document.getElementById("lname").style.visibility="visible";
+           document.getElementById("lname").style.color="red";
+           name.style.border="2px solid red";
+           return false;
+       }
+       else if(username.value.trim()==""){
+           document.getElementById("luname").style.visibility="visible";
+           document.getElementById("luname").style.color="red";
+           username.style.border="2px solid red";
+           return false;
+       }
+       else if(password.value.trim()==""){
+           document.getElementById("lpass").style.visibility="visible";
+           document.getElementById("lpass").style.color="red";
+           password.style.border="2px solid red";
+           return false;
+       }
+       else if (password.value.trim().length < 5) {
+            
+            document.getElementById("lpass").style.visibility = "visible";
+            document.getElementById("lpass").style.color="red";
+            document.getElementById("lpass").innerHTML="Password Too Short";
+            return false;
+        }
+        else if(email.value.trim()==""){
+            document.getElementById("lmail").style.visibility="visible";
+            document.getElementById("lmail").style.color="red"
+            email.style.border="2px solid red";
+            return false;
+        }
+
+      else if(mobileNumber.value.trim()==""){
+        document.getElementById("mobile").style.visibility="visible";
+        document.getElementById("mobile").style.color="red";
+        mobileNumber.style.border="2px solid red";
+        return false;
+      }
+      else if(mobileExpression.test(mobileNumber.value)){
+             document.getElementById("mobile").innerHTML = "Valid";
+            document.getElementById("mobile").style.visibility = "visible";
+            document.getElementById("mobile").style.color = "green";
+            return false;
+        
+
+      }
+      else{
+          return true;
+      }
+
+   }
+</script>
